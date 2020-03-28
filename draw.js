@@ -5,13 +5,15 @@ prevY = 0,
 currY = 0,
 dot_flag = false;
 
-var x = "black",
-        y = 2;
+var x = "white",
+        y = 3;
 
 function init()
 {
   canvas = document.getElementById("digit");
   ctx = canvas.getContext("2d");
+  canvas.height = 28;
+  canvas.width = 28;
   w = canvas.width;
   h = canvas.height;
 
@@ -68,6 +70,15 @@ function draw() {
     ctx.stroke();
     ctx.closePath();
 }
+
+// function save() {
+//   var dataURL = canvas.toDataURL();
+//   var canvas2 = document.getElementById("show-digit");
+//   var ctx2 = canvas2.getContext("2d");
+//   var imagecp = new Image();
+//   imagecp.src = dataURL;
+//   ctx2.drawImage(canvas, 0 ,0);
+// }
 
 function erase() {
     var m = true;

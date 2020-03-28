@@ -1,4 +1,11 @@
 #digit
 {
-    background-color: grey;
+    background-color: black;
+    height: 28;
+    width: 28;
+}
+
+#show-digit
+{
+    background-color:black;
 }

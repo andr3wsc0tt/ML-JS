@@ -159,15 +159,24 @@ async function showConfusion(model, data) {
   labels.dispose();
 }
 
-document.getElementById('run').addEventListener('click', testme);
-
 function testme(model){
-  var image = document.getElementById('digit');
+  var canvas1 = document.getElementById('digit');
+  var image = new Image();
+  image.src = canvas1.toDataURL();
+
+  var canvas = document.getElementById("show-digit");
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(canvas1,0,0);
+  
   image.height = 28;
   image.width = 28; 
-  var img = tf.browser.fromPixels(image);
-  const xs = tf.tensor2d(img);
-  model.predict(xs);
+  var img = tf.browser.fromPixels(image, 1);
+  img = img.reshape([1, 28, 28, 1]);
+  
+  model.predict(img).print();
 }
-document.addEventListener('DOMContentLoaded', run);
+
+var can = document.getElementById('run');
+
+can.addEventListener('click', run);
 
