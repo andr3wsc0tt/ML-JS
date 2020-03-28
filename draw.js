@@ -6,14 +6,14 @@ currY = 0,
 dot_flag = false;
 
 var x = "white",
-        y = 3;
+        y = 9;
 
 function init()
 {
   canvas = document.getElementById("digit");
   ctx = canvas.getContext("2d");
-  canvas.height = 28;
-  canvas.width = 28;
+  canvas.height = 200;
+  canvas.width = 200;
   w = canvas.width;
   h = canvas.height;
 

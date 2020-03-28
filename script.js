@@ -160,23 +160,31 @@ async function showConfusion(model, data) {
 }
 
 function testme(model){
-  var canvas1 = document.getElementById('digit');
-  var image = new Image();
-  image.src = canvas1.toDataURL();
+  // var image = document.getElementById('digit');
 
-  var canvas = document.getElementById("show-digit");
-  var ctx = canvas.getContext("2d");
-  ctx.drawImage(canvas1,0,0);
+  // var canvas = document.getElementById("show-digit");
+  // var ctx = canvas.getContext("2d");
+  // ctx.drawImage(image,0,0);
+
+  // image.height = 28;
+  // image.width = 28; 
+  // var img = tf.browser.fromPixels(image, 1);
+  // // img.height = 28;
+  // // img.width = 28;
+  // img = img.reshape([1, 28, 28, 1]);
   
-  image.height = 28;
-  image.width = 28; 
+  var image = new Image();
+  image.src = "./img/download.png";
   var img = tf.browser.fromPixels(image, 1);
+  img.height = 28;
+  img.width = 28;
   img = img.reshape([1, 28, 28, 1]);
-  
-  model.predict(img).print();
+  const offset = tf.scalar(255.0);
+  const normalized = img.sub(offset).div(offset);
+
+  model.predict(normalized).print();
 }
 
 var can = document.getElementById('run');
 
 can.addEventListener('click', run);
-
