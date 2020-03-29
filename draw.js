@@ -6,7 +6,7 @@ currY = 0,
 dot_flag = false;
 
 var x = "white",
-        y = 4;
+        y = 3;
 
 function init()
 {
