@@ -160,8 +160,13 @@ async function testme(model){
   let offset=tf.scalar(255);
   img =  img.div(offset);
 
-  model.predict(img).print();
-  
+  var guesses = await model.predict(img).array();
+  var value = Math.max(...guesses[0]);
+  var index = guesses[0].indexOf(Math.max(...guesses[0]));
+
+  var response = document.getElementById("guess-response");
+
+  response.textContent = `I think that's a ${index} and I'm ${value*100}% sure`;
 }
 
 var can = document.getElementById('run');
