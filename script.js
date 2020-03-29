@@ -154,10 +154,14 @@ async function testme(model){
 
   var replace = document.getElementById("test-image");
   var img = tf.browser.fromPixels(replace, 1);
+
   img = img.reshape([1, 28, 28, 1]);
 
+  let offset=tf.scalar(255);
+  img =  img.div(offset);
+
   model.predict(img).print();
- 
+  
 }
 
 var can = document.getElementById('run');
