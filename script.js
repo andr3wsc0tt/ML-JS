@@ -157,6 +157,7 @@ async function testme(model){
   img = img.reshape([1, 28, 28, 1]);
 
   model.predict(img).print();
+ 
 }
 
 var can = document.getElementById('run');
