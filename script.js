@@ -42,6 +42,8 @@ async function run() {
   await showConfusion(model, data);
 
   await testme(model);
+
+  await model.save('downloads://mnist-model');
 }
 
 function getModel(){
