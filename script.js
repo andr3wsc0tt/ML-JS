@@ -41,7 +41,7 @@ async function run() {
   await showAccuracy(model, data);
   await showConfusion(model, data);
 
-  testme(model);
+  await testme(model);
 }
 
 function getModel(){
@@ -159,26 +159,10 @@ async function showConfusion(model, data) {
   labels.dispose();
 }
 
-function testme(model){
-  // var image = document.getElementById('digit');
+async function testme(model){
 
-  // var canvas = document.getElementById("show-digit");
-  // var ctx = canvas.getContext("2d");
-  // ctx.drawImage(image,0,0);
-
-  // image.height = 28;
-  // image.width = 28; 
-  // var img = tf.browser.fromPixels(image, 1);
-  // // img.height = 28;
-  // // img.width = 28;
-  // img = img.reshape([1, 28, 28, 1]);
-  
-  // var image = new Image();
-  // image.src = "./img/download.png";
-
-  var image = document.getElementById("test-image");
-
-  var img = tf.browser.fromPixels(image, 1);
+  var replace = document.getElementById("test-image");
+  var img = tf.browser.fromPixels(replace, 1);
   img = img.reshape([1, 28, 28, 1]);
 
   model.predict(img).print();

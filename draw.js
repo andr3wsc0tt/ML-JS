@@ -6,14 +6,18 @@ currY = 0,
 dot_flag = false;
 
 var x = "white",
-        y = 9;
+        y = 4;
 
 function init()
 {
   canvas = document.getElementById("digit");
   ctx = canvas.getContext("2d");
-  canvas.height = 200;
-  canvas.width = 200;
+  canvas.height = 28;
+  canvas.width = 28;
+  
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
   w = canvas.width;
   h = canvas.height;
 
@@ -29,6 +33,11 @@ function init()
   canvas.addEventListener("mouseout", function (e) {
     findxy('out', e)
   }, false);
+
+  // var save = document.getElementById("save");
+  // save.addEventListener("click", );
+
+  return;
   
 }
 function findxy(res, e) {
@@ -71,14 +80,10 @@ function draw() {
     ctx.closePath();
 }
 
-// function save() {
-//   var dataURL = canvas.toDataURL();
-//   var canvas2 = document.getElementById("show-digit");
-//   var ctx2 = canvas2.getContext("2d");
-//   var imagecp = new Image();
-//   imagecp.src = dataURL;
-//   ctx2.drawImage(canvas, 0 ,0);
-// }
+function save() {
+  var dataURL = canvas.toDataURL();
+  document.getElementById('test-image').src = dataURL;
+}
 
 function erase() {
     var m = true;
