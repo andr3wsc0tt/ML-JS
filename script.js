@@ -173,16 +173,15 @@ function testme(model){
   // // img.width = 28;
   // img = img.reshape([1, 28, 28, 1]);
   
-  var image = new Image();
-  image.src = "./img/download.png";
-  var img = tf.browser.fromPixels(image, 1);
-  img.height = 28;
-  img.width = 28;
-  img = img.reshape([1, 28, 28, 1]);
-  const offset = tf.scalar(255.0);
-  const normalized = img.sub(offset).div(offset);
+  // var image = new Image();
+  // image.src = "./img/download.png";
 
-  model.predict(normalized).print();
+  var image = document.getElementById("test-image");
+
+  var img = tf.browser.fromPixels(image, 1);
+  img = img.reshape([1, 28, 28, 1]);
+
+  model.predict(img).print();
 }
 
 var can = document.getElementById('run');
