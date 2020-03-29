@@ -88,7 +88,8 @@ function save() {
 function erase() {
     var m = true;
     if (m) {
-        ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 }
 
