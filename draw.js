@@ -1,23 +1,22 @@
 var canvas, ctx, flag = false;
 prevX = 0,
-currX = 0,
-prevY = 0,
-currY = 0,
-dot_flag = false;
+  currX = 0,
+  prevY = 0,
+  currY = 0,
+  dot_flag = false;
 
 var x = "white",
-        y = 3;
+  y = 6;
 
-function init()
-{
+function init() {
   canvas = document.getElementById("digit");
   ctx = canvas.getContext("2d");
-  canvas.height = 28;
-  canvas.width = 28;
-  
+  canvas.height = 140;
+  canvas.width = 140;
+
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
+
   w = canvas.width;
   h = canvas.height;
 
@@ -38,46 +37,46 @@ function init()
   // save.addEventListener("click", );
 
   return;
-  
+
 }
 function findxy(res, e) {
   if (res == 'down') {
+    prevX = currX;
+    prevY = currY;
+    currX = e.clientX - canvas.offsetLeft;
+    currY = e.clientY - canvas.offsetTop;
+
+    flag = true;
+    dot_flag = true;
+    if (dot_flag) {
+      ctx.beginPath();
+      ctx.fillStyle = x;
+      ctx.fillRect(currX, currY, 2, 2);
+      ctx.closePath();
+      dot_flag = false;
+    }
+  }
+  if (res == 'up' || res == "out") {
+    flag = false;
+  }
+  if (res == 'move') {
+    if (flag) {
       prevX = currX;
       prevY = currY;
       currX = e.clientX - canvas.offsetLeft;
       currY = e.clientY - canvas.offsetTop;
-
-      flag = true;
-      dot_flag = true;
-      if (dot_flag) {
-          ctx.beginPath();
-          ctx.fillStyle = x;
-          ctx.fillRect(currX, currY, 2, 2);
-          ctx.closePath();
-          dot_flag = false;
-      }
-  }
-  if (res == 'up' || res == "out") {
-      flag = false;
-  }
-  if (res == 'move') {
-      if (flag) {
-          prevX = currX;
-          prevY = currY;
-          currX = e.clientX - canvas.offsetLeft;
-          currY = e.clientY - canvas.offsetTop;
-          draw();
-      }
+      draw();
+    }
   }
 }
 function draw() {
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currX, currY);
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.stroke();
-    ctx.closePath();
+  ctx.beginPath();
+  ctx.moveTo(prevX, prevY);
+  ctx.lineTo(currX, currY);
+  ctx.strokeStyle = x;
+  ctx.lineWidth = y;
+  ctx.stroke();
+  ctx.closePath();
 }
 
 function save() {
@@ -86,11 +85,11 @@ function save() {
 }
 
 function erase() {
-    var m = true;
-    if (m) {
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
+  var m = true;
+  if (m) {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
 }
 
 init();

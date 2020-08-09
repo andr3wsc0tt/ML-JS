@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Import TensorFlow.js -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
     <!-- Import tfjs-vis -->
@@ -12,27 +11,26 @@
     <script src="data.js" type="module" defer></script>
     <!-- Import the main script file -->
     <script src="./draw.js" defer></script>
-    <script src="./script.js" type="module" ></script>
-    <link rel="stylesheet" href="./main.css">
+    <script src="./script.js" type="module"></script>
+    <link rel="stylesheet" href="./main.css" />
 
     <title>MNIST</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <canvas id="digit"></canvas>
-    <input type="button" value="run" id="run" size="23" onclick="save()">
-    <input type="button" value="again" id="erase" size="23" onclick="erase()">
-    <img id ="test-image">
+    <input type="button" value="run" id="run" size="23" onclick="save()" />
+    <input type="button" value="again" id="erase" size="23" onclick="erase()" />
+    <img id="test-image" />
 
     <p id="guess-response"></p>
-</body>
+  </body>
 
-<!-- Done -->
-    <!-- save the model so that you dont have to run it everytime!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+  <!-- Done -->
+  <!-- save the model so that you dont have to run it everytime!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
-<!-- To Do -->
-    <!-- Make the drawing box bigger, then scale it down -->
-    <!-- Find a way to hide the save -->
-    <!-- Improve the accuracy / Create an app that chooses a number then gets you to draw it in then saves it, then use that dataset as training fuel -->
-
+  <!-- To Do -->
+  <!-- Make the drawing box bigger, then scale it down -->
+  <!-- Find a way to hide the save -->
+  <!-- Improve the accuracy / Create an app that chooses a number then gets you to draw it in then saves it, then use that dataset as training fuel -->
 </html>
