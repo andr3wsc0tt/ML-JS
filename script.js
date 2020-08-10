@@ -30,7 +30,7 @@ async function showExamples(data) {
 }
 
 async function run() {
-  const model = await tf.loadLayersModel('resources/mnist-model.json');
+  const model = await tf.loadLayersModel('https://andr3wsc0tt.github.io/ML-JS/resources/mnist-model.json');
 
   await testme(model);
 }
